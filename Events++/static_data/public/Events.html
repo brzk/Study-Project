@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Events</title>
+</head>
+
+
+<script src="AfterLogin.js"></script>
+<link rel="stylesheet" href="GlobalUI.css">
+<link rel="stylesheet" href="Home.css">
+<script src="Home.js"></script>
+<meta charset="UTF-8">
+<title>Friend Zone</title>
+
+<body background="http://media.idownloadblog.com/wp-content/uploads/2013/08/iPhone-5-Blue-grunge-Max_Kas.jpg">
+
+<script>authenticate();</script>
+
+
+<div class="form">
+        <div id="yesPass">
+                        <ul class="tab-group">
+                                <li id="privateLi" class="tab active"><a href="#public" onclick="hidePublic()">Private</a></li>
+                                <li id="publicLi" class="tab"><a href="#public" onclick="hidePrivate()">Public</a></li>
+                        </ul>
+
+                <div id="private">
+                        What <input type="text" id="eventName"><br>
+                        Where <input type="text" id="eventLoc"><br>
+                        When <input type="datetime-local" id="eventDate"><br>
+                        Picture <input type="text" id="eventPic"><br>
+                        Who <select id="friendSelect"></select><button class="myButton" onclick="addFriendToEvent('Private')" id="friendButton">Add</button> <br>
+                        <script>fillFriendList()</script>
+                        <textarea rows="10" cols="50" id="eventDescription"> Description </textarea><br>
+                        <button class="myButton" onclick="privateEventer()">SEND</button>
+                        <br><br><br><br><br>
+                </div>
+                <div id="public" style="display:none">
+                        What <input type="text" id="publicEventName"><br>
+                        Category <select id="publicEventCategory"></select><br>
+                        <script>fillCategories()</script>
+                        Where <input type="text" id="publicEventLoc"><br>
+                        When <input type="datetime-local" id="publicEventDate"><br>
+                        Picture <input type="text" id="publicEventPic"><br>
+                        <div class="top-row">
+                                <div class="field-wrap">
+                                        min Age
+                                        <label>
+                                                <span class="req">*</span>
+                                        </label>
+                                        <input id ="publicMinAge" required autocomplete="off" />
+                                </div>
+
+                                <div class="field-wrap">
+                                        max Age
+                                        <label>
+                                                <span class="req">*</span>
+                                        </label>
+                                        <input id="publicMaxAge" required autocomplete="off"/>
+                                </div>
+                        </div>
+                        Amount of participants <input id="publicEventMaxPartici"><br>
+                        Who <select id="publicEventfriendSelect"></select><button class="myButton" onclick="addFriendToEvent('Public')" id="friendButton">Add</button> <br>
+                        <textarea rows="10" cols="50" id="publicEventDescription"> Description </textarea><br>
+                        <button class="myButton" onclick="publicEventer()">SEND</button>
+                        <br><br><br><br><br>
+                </div>
+        </div>
+</div>
+<ul class="navbarUl">
+        <li class="navbarLi"><a  href="AfterLogin.html">My Events</a></li>
+        <li class="navbarLi"><a href=FindEvents.html">Find Event</a></li>
+        <li class="navbarLi"><a href="Friends.html">Friend Zone</a></li>
+        <li class="navbarLi"><a class="active" href="Events.html">Create Event</a></li>
+        <li class="navbarLi"><a href="Home.html" onclick="deleteCookie()">Log Out</a></li>
+</ul>
+</body>
+</html>

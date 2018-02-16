@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+            <meta charset="UTF-8">
+            <title>Sign-Up/Login Form</title>
+            <script src='libs/jquery-3.2.1.min.js'></script>
+            <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+            <script src="Home.js"></script>
+            <link rel="stylesheet" href="Home.css">
+
+
+        </head>
+
+<body background="http://media.idownloadblog.com/wp-content/uploads/2013/08/iPhone-5-Blue-grunge-Max_Kas.jpg">
+<div class="form">
+
+    <ul class="tab-group">
+        <li class="tab active"><a href="#login">Log In</a></li>
+        <li class="tab"><a href="#signup">Sign Up</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div id="login">
+            <h1>Welcome Back!</h1>
+
+            <!--<form action="/login" method="post">-->
+
+            <div class="field-wrap">
+                <label>
+                    Username<span class="req">*</span>
+                </label>
+                <input id="login_user" required autocomplete="off"/>
+            </div>
+
+            <div class="field-wrap">
+                <label>
+                    Password<span class="req">*</span>
+                </label>
+                <input type="password" id="login_password" required autocomplete="off"/>
+            </div>
+
+
+            <button onclick="login()" class="button button-block">Log In</button>
+
+            <!--</form>-->
+
+        </div>
+
+        <div id="signup">
+            <h1>Sign Up</h1>
+
+            <!--<form action="/register" method="post">-->
+
+                <div class="top-row">
+                    <div class="field-wrap">
+                        <label>
+                            Username<span class="req">*</span>
+                        </label>
+                        <input id ="username" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                            Password<span class="req">*</span>
+                        </label>
+                        <input id="password" type="password" required autocomplete="off"/>
+                    </div>
+                </div>
+
+                <div class="field-wrap">
+                    <label>
+                        Email Address<span class="req">*</span>
+                    </label>
+                    <input id="email" type="email"required autocomplete="off"/>
+                </div>
+
+                <span class="bday"> Birthday*</span>
+                <div class="field-wrap">
+
+                    <input id="birthday" type="date" required autocomplete="off"/>
+
+                </div>
+
+                <div class="field-wrap">
+
+                    <span class="bday"> Sex*
+                     <ul class="tab-group">
+                         <li class="tab active" onclick="male()"><a href="#signup">Male</a></li>
+                             <li class="tab" onclick="female()"><a href="#signup">Female</a></li>
+                     </ul>
+                    </span>
+
+
+                </div>
+                <span class="bday">Image</span>
+                <input type="file" onchange="previewFile()"><br>
+                <script>
+                    initConnection();
+                    function previewFile(){
+                        var preview = document.querySelector('img'); //selects the query named img
+                        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+                        var reader  = new FileReader();
+
+                        reader.onloadend = function () {
+                            preview.src = reader.result;
+                        }
+
+                        if (file) {
+                            reader.readAsDataURL(file); //reads the data as a URL
+                        } else {
+                            preview.src = "";
+                        }
+                    }
+
+                    previewFile();
+                </script>
+                <img src="" height="200">
+
+                <button onclick="signup()" class="button button-block">Get Started</button>
+
+            <!--</form>-->
+
+        </div>
+
+
+
+    </div><!-- tab-content -->
+
+</div> <!-- /form -->
+
+
+<script>
+    $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+
+        var $this = $(this),
+            label = $this.prev('label');
+
+        if (e.type === 'keyup') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight');
+            } else {
+                label.addClass('active highlight');
+            }
+        } else if (e.type === 'blur') {
+            if( $this.val() === '' ) {
+                label.removeClass('active highlight');
+            } else {
+                label.removeClass('highlight');
+            }
+        } else if (e.type === 'focus') {
+
+            if( $this.val() === '' ) {
+                label.removeClass('highlight');
+            }
+            else if( $this.val() !== '' ) {
+                label.addClass('highlight');
+            }
+        }
+
+    });
+
+    $('.tab a').on('click', function (e) {
+
+        e.preventDefault();
+
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+
+        target = $(this).attr('href');
+
+        $('.tab-content > div').not(target).hide();
+
+        $(target).fadeIn(600);
+
+    });
+</script>
+
+</body>
+</html>
+</head>
+<body>
+
+</body>
+</html>

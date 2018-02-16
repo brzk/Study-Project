@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="AfterLogin.js"></script>
+    <link rel="stylesheet" href="GlobalUI.css">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="Home.css">
+    <title>Friend Zone</title>
+
+<body background="http://media.idownloadblog.com/wp-content/uploads/2013/08/iPhone-5-Blue-grunge-Max_Kas.jpg">
+
+<div class="form">
+    <script>authenticate();</script>
+    <div id="yesPass">
+        <h3>Add Friend:</h3>
+        <input type="text" id="friendRequestName"><button onclick="sendFriendRequest()" class="myButton">Send</button>
+
+        <h3><span id="requestNum"> </span> Friend request(s):</h3>
+        <div id ="addedMe">
+        </div>
+    </div>
+</div>
+
+<ul class="navbarUl">
+    <li class="navbarLi"><a  href="AfterLogin.html">My Events</a></li>
+    <li class="navbarLi"><a href="Friends.html">Find Event</a></li>
+    <li class="navbarLi"><a class="active"href="Friends.html">Friend Zone</a></li>
+    <li class="navbarLi"><a  href="Events.html">Create Event</a></li>
+    <li class="navbarLi"><a href="Home.html" onclick="deleteCookie()">Log Out</a></li>
+</ul>
+</div>
+</body>
+</head>
+
+</html>

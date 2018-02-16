@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="AfterLogin.js"></script>
+
+<link rel="stylesheet" href="GlobalUI.css">
+<meta charset="UTF-8">
+<title>Main Menu</title>
+
+<body background="http://media.idownloadblog.com/wp-content/uploads/2013/08/iPhone-5-Blue-grunge-Max_Kas.jpg">
+<script>authenticate();</script>
+<div id="yesPass">
+
+    Category <select id="publicEventCategory"></select><br>
+    <script>fillCategories()</script>
+    <div id="myPublicEvents">
+
+    </div>
+
+    <script> addMyPublicEvents();</script>
+
+    <div id="currentEvent" style="display:none">
+
+    </div>
+    <br><br><br><br><br><br><br><br>
+
+    <ul class="navbarUl">
+        <li class="navbarLi"><a  href="AfterLogin.html">My Events</a></li>
+        <li class="navbarLi"><a class="active" href="FindEvents.html">Find Event</a></li>
+        <li class="navbarLi"><a href="Friends.html">Friend Zone</a></li>
+        <li class="navbarLi"><a  href="Events.html">Create Event</a></li>
+        <li class="navbarLi"><a href="Home.html" onclick="deleteCookie()">Log Out</a></li>
+    </ul>
+</div>
+
+<script src="FindEvents.js"></script>
+</body>
+
+
+</html>
